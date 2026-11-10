@@ -1,0 +1,8 @@
+{
+  "appId": "pe.edu.upc.food",
+  "appName": "UPC Food",
+  "webDir": "dist",
+  "android": {
+    "backgroundColor": "#F5F7F4"
+  }
+}

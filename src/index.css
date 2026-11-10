@@ -1,0 +1,102 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-brand-50: #f0f8f3;
+  --color-brand-100: #e3f2e8;
+  --color-brand-200: #c5e4d0;
+  --color-brand-300: #9bd0ae;
+  --color-brand-400: #6bb687;
+  --color-brand-500: #3f9a65;
+  --color-brand-600: #2e7d4f;
+  --color-brand-700: #236140;
+  --color-brand-800: #1c5236;
+  --color-brand-900: #17462e;
+  --color-brand-950: #0e2b1c;
+
+  --color-accent-50: #fef9e8;
+  --color-accent-100: #fdf0c7;
+  --color-accent-300: #f8d777;
+  --color-accent-400: #f5c542;
+  --color-accent-600: #b98a12;
+
+  --color-coral-50: #fdf1ed;
+  --color-coral-500: #d9694c;
+
+  --color-ink: #1e2a23;
+  --color-muted: #66756c;
+  --color-canvas: #f5f7f4;
+  --color-line: #e3e9e4;
+
+  --font-display: 'Bebas Neue', 'Oswald', 'Arial Narrow', sans-serif;
+  --font-sans: 'Public Sans Variable', 'Public Sans', system-ui, sans-serif;
+
+  --shadow-card: 0 2px 4px rgba(23, 70, 46, 0.04), 0 8px 24px rgba(23, 70, 46, 0.08);
+  --shadow-float: 0 12px 32px rgba(14, 43, 28, 0.18);
+
+  --animate-slide-down: slide-down 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  --animate-slide-up: slide-up 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+  --animate-fade-in: fade-in 0.25s ease-out;
+  --animate-pop: pop 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.4);
+
+  @keyframes slide-down {
+    from { transform: translateY(-120%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pop {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Capacitor 8 expone --safe-area-inset-* en WebViews donde env() no está disponible */
+.safe-area {
+  padding-top: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px));
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), var(--safe-area-inset-bottom, 0px));
+}
+
+/* Scroll sin barra visible dentro del "celular" */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+input[type='time']::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+input[type='range'] {
+  accent-color: var(--color-brand-700);
+}
+
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}

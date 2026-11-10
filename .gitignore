@@ -1,0 +1,14 @@
+node_modules
+dist
+*.log
+
+# Material de edición del podcast (audios pesados; el .wav supera el límite de 100 MB de GitHub)
+podcast_edicion/
+
+# Configuración local
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+.DS_Store
+Thumbs.db
